@@ -10,7 +10,7 @@ class ActionButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return RaisedButton(
-      color: kActionButtonHighlightColor,
+      color: kActionButtonColor,
       highlightColor: kActionButtonHighlightColor,
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(10),
