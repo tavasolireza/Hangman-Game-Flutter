@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_hangman/utilities/constants.dart';
 
 class WordButton extends StatelessWidget {
   WordButton({this.buttonTitle, this.onPress});
@@ -9,12 +10,11 @@ class WordButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return FlatButton(
-      color: Color(0xFF099a97),
+      color: kWordButtonColor,
       onPressed: onPress,
       child: Text(
         buttonTitle,
-        style: TextStyle(
-            fontFamily: 'AmaticSC', fontWeight: FontWeight.bold, fontSize: 30),
+        style: kWordButtonTextStyle,
       ),
     );
   }
