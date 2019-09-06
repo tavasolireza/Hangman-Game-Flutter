@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_hangman/Screens/home_screen.dart';
+import 'package:flutter_hangman/screens/home_screen.dart';
 
 void main() => runApp(MyApp());
 
@@ -9,7 +9,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       theme: ThemeData.dark().copyWith(
         scaffoldBackgroundColor: Color(0xFF3e38b0),
-        textTheme: Theme.of(context).textTheme.apply(fontFamily: 'MiriamLibre'),
+        textTheme: Theme.of(context).textTheme.apply(fontFamily: 'AmaticSC'),
       ),
       home: HomeScreen(),
     );
