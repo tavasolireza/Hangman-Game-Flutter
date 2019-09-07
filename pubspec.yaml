@@ -36,3 +36,7 @@ flutter:
       fonts:
         - asset: fonts/MiriamLibre-Bold.ttf
         - asset: fonts/MiriamLibre-Regular.ttf
+    - family: FiraMono
+      fonts:
+        - asset: fonts/FiraMono-Bold.ttf
+        - asset: fonts/FiraMono-Regular.ttf
