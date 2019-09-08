@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_hangman/utilities/alphabet.dart';
 import 'package:flutter_hangman/components/word_button.dart';
+import 'package:flutter_hangman/utilities/hangman_words.dart';
 
 class GameScreen extends StatefulWidget {
   @override
@@ -9,11 +10,12 @@ class GameScreen extends StatefulWidget {
 }
 
 class _GameScreenState extends State<GameScreen> {
-  String reza = '';
+  HangmanWords wordList = HangmanWords();
   Alphabet englishAlphabet = Alphabet();
 
   @override
   Widget build(BuildContext context) {
+    String word = wordList.getWord();
     return Scaffold(
       body: SafeArea(
         child: Column(
@@ -21,10 +23,15 @@ class _GameScreenState extends State<GameScreen> {
             Expanded(
               flex: 3,
               child: Container(
-                margin: EdgeInsets.only(top: 15.0),
+                margin: EdgeInsets.symmetric(horizontal: 10.0),
+                alignment: Alignment.center,
                 child: Text(
-                  reza,
-                  style: TextStyle(fontSize: 50, color: Colors.white),
+                  word,
+                  style: TextStyle(
+                      fontSize: 60,
+                      color: Colors.white,
+                      fontFamily: 'FiraMono',
+                      letterSpacing: 8),
                 ),
               ),
             ),
@@ -46,7 +53,8 @@ class _GameScreenState extends State<GameScreen> {
                         buttonTitle: englishAlphabet.alphabet[index],
                         onPress: () {
                           setState(() {
-                            reza += englishAlphabet.alphabet[index];
+//                            reza = reza.replaceFirst(
+//                                RegExp('_'), englishAlphabet.alphabet[index]);
                           });
                         },
                       ));
@@ -61,24 +69,3 @@ class _GameScreenState extends State<GameScreen> {
     );
   }
 }
-//Align(
-//            child: GridView.count(
-//              crossAxisCount: 7,
-//              crossAxisSpacing: 10,
-//              mainAxisSpacing: 10,
-//              children: List.generate(
-//                26,
-//                (index) {
-//                  return Center(
-//                    child: FlatButton(
-//                      color: Color(0xFF099a97),
-//                      onPressed: () {},
-//                      child: Text(
-//                        Alphabet().alphabet[index],
-//                      ),
-//                    ),
-//                  );
-//                },
-//              ),
-//            ),
-//          )
