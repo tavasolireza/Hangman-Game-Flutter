@@ -29,7 +29,6 @@ class HangmanWords {
     'clock',
     'cloth',
     'delicate',
-    'dependent',
     'design',
     'desire',
     'engine',
@@ -54,7 +53,6 @@ class HangmanWords {
     'knee',
     'knife',
     'knot',
-    'knowledge',
     'land',
     'language',
     'last',
@@ -110,5 +108,13 @@ class HangmanWords {
         randNumber = rand.nextInt(wordLength);
       }
     }
+  }
+
+  String getHiddenWord(int wordLength) {
+    String hiddenWord = '';
+    for (int i = 0; i < wordLength; i++) {
+      hiddenWord += '_';
+    }
+    return hiddenWord;
   }
 }
