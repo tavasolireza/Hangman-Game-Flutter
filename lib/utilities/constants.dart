@@ -2,8 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:rflutter_alert/rflutter_alert.dart';
 
 const kActionButtonTextStyle = TextStyle(
-  fontSize: 35.0,
+  fontSize: 30.0,
   color: Colors.white,
+  fontWeight: FontWeight.bold,
 );
 const kActionButtonColor = Color(0xFF6b48ff);
 const kActionButtonHighlightColor = Color(0xFF099a97);
@@ -17,14 +18,18 @@ var kAlertStyle = AlertStyle(
   animationType: AnimationType.grow,
   isCloseButton: false,
   isOverlayTapDismiss: false,
-  descStyle: TextStyle(fontWeight: FontWeight.bold),
+  descStyle: TextStyle(
+    color: Colors.white,
+    fontWeight: FontWeight.bold,
+    fontSize: 25.0,
+  ),
   animationDuration: Duration(milliseconds: 400),
   backgroundColor: Color(0xFF2C1E68),
   alertBorder: RoundedRectangleBorder(
     borderRadius: BorderRadius.circular(10.0),
   ),
   titleStyle: TextStyle(
-    color: Colors.white,
+    color: Color(0xFF099a97),
     fontWeight: FontWeight.bold,
     fontSize: 25.0,
   ),
@@ -32,7 +37,7 @@ var kAlertStyle = AlertStyle(
 
 const kDialogButtonTextStyle = TextStyle(
   color: Colors.white,
-  fontSize: 20,
+  fontSize: 21,
   fontWeight: FontWeight.bold,
 );
 
