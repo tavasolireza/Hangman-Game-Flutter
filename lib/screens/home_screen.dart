@@ -23,7 +23,7 @@ class _HomeScreenState extends State<HomeScreen> {
               style: TextStyle(
                   fontFamily: 'AmaticSC',
                   color: Colors.white,
-                  fontSize: 55.0,
+                  fontSize: 50.0,
                   fontWeight: FontWeight.bold),
             ),
           ),
@@ -38,7 +38,7 @@ class _HomeScreenState extends State<HomeScreen> {
           Align(
             alignment: Alignment.center,
             child: Container(
-              width: 190,
+              width: 165,
               height: 60,
               margin: EdgeInsets.only(top: 330.0),
               child: ActionButton(
