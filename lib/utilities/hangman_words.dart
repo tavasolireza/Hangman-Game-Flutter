@@ -1,13 +1,13 @@
 import 'dart:math';
 
 class HangmanWords {
+  int wordCounter = 0;
   List<int> _usedNumbers = [];
   List<String> _words = [
     'account',
     'acid',
     'across',
     'act',
-    'addition',
     'bit',
     'bite',
     'bitter',
@@ -48,7 +48,7 @@ class HangmanWords {
     'hand',
     'hanging',
     'happy',
-    'harbour',
+    'harbor',
     'kiss',
     'knee',
     'knife',
@@ -91,14 +91,77 @@ class HangmanWords {
     'wrong',
     'year',
     'yellow',
+    'abondon',
+    'accurate',
+    'amateur',
+    'appoint',
+    'brutal',
+    'budget',
+    'century',
+    'cinema',
+    'collide',
+    'decade',
+    'disaster',
+    'drought',
+    'envy',
+    'event',
+    'expand',
+    'extract',
+    'fiction',
+    'final',
+    'fragile',
+    'devour',
+    'glance',
+    'gloomy',
+    'guide',
+    'harvest',
+    'hazy',
+    'ignore',
+    'illegal',
+    'insist',
+    'lecture',
+    'lottery',
+    'lunatic',
+    'magnify',
+    'mature',
+    'migrate',
+    'mortal',
+    'mute',
+    'neglect',
+    'neutral',
+    'novel',
+    'oath',
+    'obesity',
+    'obtain',
+    'panic',
+    'pencil',
+    'partial',
+    'perish',
+    'pioneer',
+    'pollute',
+    'quench',
+    'quote',
+    'qualify',
+    'rapid',
+    'recent',
+    'reject',
+    'resist',
+    'rival',
   ];
 
   // ignore: missing_return
   String getWord() {
+    wordCounter += 1;
+    print(wordCounter);
+    print('enter getWord');
     var rand = Random();
     int wordLength = _words.length;
     int randNumber = rand.nextInt(wordLength);
     bool notUnique = true;
+    if (wordCounter - 1 == _words.length) {
+      notUnique = false;
+      return '';
+    }
     while (notUnique) {
       if (!_usedNumbers.contains(randNumber)) {
         notUnique = false;
