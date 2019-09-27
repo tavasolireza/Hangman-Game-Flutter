@@ -14,7 +14,7 @@ const kWordButtonColor = Color(0xFF099a97);
 const kWordButtonTextStyle =
     TextStyle(fontWeight: FontWeight.bold, fontSize: 30);
 
-var kAlertStyle = AlertStyle(
+var kSuccessAlertStyle = AlertStyle(
   animationType: AnimationType.grow,
   isCloseButton: false,
   isOverlayTapDismiss: false,
@@ -23,13 +23,33 @@ var kAlertStyle = AlertStyle(
     fontWeight: FontWeight.bold,
     fontSize: 25.0,
   ),
-  animationDuration: Duration(milliseconds: 400),
+  animationDuration: Duration(milliseconds: 500),
   backgroundColor: Color(0xFF2C1E68),
   alertBorder: RoundedRectangleBorder(
     borderRadius: BorderRadius.circular(10.0),
   ),
   titleStyle: TextStyle(
     color: Color(0xFF099a97),
+    fontWeight: FontWeight.bold,
+    fontSize: 25.0,
+  ),
+);
+var kFailedAlertStyle = AlertStyle(
+  animationType: AnimationType.grow,
+  isCloseButton: false,
+  isOverlayTapDismiss: false,
+  descStyle: TextStyle(
+    color: Colors.white,
+    fontWeight: FontWeight.bold,
+    fontSize: 25.0,
+  ),
+  animationDuration: Duration(milliseconds: 500),
+  backgroundColor: Color(0xFF2C1E68),
+  alertBorder: RoundedRectangleBorder(
+    borderRadius: BorderRadius.circular(10.0),
+  ),
+  titleStyle: TextStyle(
+    color: Colors.red,
     fontWeight: FontWeight.bold,
     fontSize: 25.0,
   ),
