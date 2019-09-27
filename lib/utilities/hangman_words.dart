@@ -152,8 +152,6 @@ class HangmanWords {
   // ignore: missing_return
   String getWord() {
     wordCounter += 1;
-    print(wordCounter);
-    print('enter getWord');
     var rand = Random();
     int wordLength = _words.length;
     int randNumber = rand.nextInt(wordLength);
