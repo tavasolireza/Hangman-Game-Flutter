@@ -9,11 +9,17 @@ class WordButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return FlatButton(
+    return RaisedButton(
+      elevation: 2.0,
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(10),
+      ),
+      padding: EdgeInsets.all(4.0),
       color: kWordButtonColor,
       onPressed: onPress,
       child: Text(
         buttonTitle,
+        textAlign: TextAlign.center,
         style: kWordButtonTextStyle,
       ),
     );
