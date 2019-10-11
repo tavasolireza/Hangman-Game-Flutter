@@ -27,16 +27,6 @@ flutter:
       fonts:
         - asset: fonts/AmaticSC-Regular.ttf
         - asset: fonts/AmaticSC-Bold.ttf
-    - family: Anton
-      fonts:
-        - asset: fonts/Anton-Regular.ttf
-    - family: Blinker
-      fonts:
-        - asset: fonts/Blinker-Regular.ttf
-    - family: MiriamLibre
-      fonts:
-        - asset: fonts/MiriamLibre-Bold.ttf
-        - asset: fonts/MiriamLibre-Regular.ttf
     - family: FiraMono
       fonts:
         - asset: fonts/FiraMono-Bold.ttf
