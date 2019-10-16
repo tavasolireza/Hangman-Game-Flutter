@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_hangman/screens/home_screen.dart';
+import 'package:flutter_hangman/utilities/constants.dart';
 
 void main() {
   SystemChrome.setEnabledSystemUIOverlays([]);
@@ -16,6 +17,18 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       theme: ThemeData.dark().copyWith(
+        tooltipTheme: TooltipThemeData(
+          decoration: BoxDecoration(
+            color: kTooltipColor,
+            borderRadius: BorderRadius.circular(5.0),
+          ),
+          textStyle: TextStyle(
+            fontWeight: FontWeight.w900,
+            fontSize: 20.0,
+            letterSpacing: 1.0,
+            color: Colors.white,
+          ),
+        ),
         scaffoldBackgroundColor: Color(0xFF4225A0),
         textTheme: Theme.of(context).textTheme.apply(fontFamily: 'AmaticSC'),
       ),
