@@ -167,12 +167,10 @@ class _GameScreenState extends State<GameScreen> {
   @override
   Widget build(BuildContext context) {
     if (resetGame) {
-      print('i came here');
       setState(() {
         initWords();
       });
     }
-    print(wordList);
     return WillPopScope(
       onWillPop: () {
         return Future(() => false);
