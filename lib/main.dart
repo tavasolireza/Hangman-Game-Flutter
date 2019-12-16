@@ -4,17 +4,17 @@ import 'package:flutter_hangman/screens/home_screen.dart';
 import 'package:flutter_hangman/utilities/constants.dart';
 
 void main() {
-  SystemChrome.setEnabledSystemUIOverlays([]);
-  SystemChrome.setPreferredOrientations([
-    DeviceOrientation.portraitUp,
-    DeviceOrientation.portraitDown,
-  ]);
   return runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    SystemChrome.setEnabledSystemUIOverlays([]);
+    SystemChrome.setPreferredOrientations([
+      DeviceOrientation.portraitUp,
+      DeviceOrientation.portraitDown,
+    ]);
     return MaterialApp(
       theme: ThemeData.dark().copyWith(
         tooltipTheme: TooltipThemeData(
