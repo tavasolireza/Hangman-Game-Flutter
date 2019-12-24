@@ -6,6 +6,7 @@
 A hangman game written in Dart with Flutter framework.
 
 ## Screenshots
+<img src="./res/documentation/hangman_animation.gif" width="240" height="500" />
 
 <img src="./res/documentation/mockup.jpg">
 
