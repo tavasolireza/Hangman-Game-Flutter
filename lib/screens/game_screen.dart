@@ -188,58 +188,46 @@ class _GameScreenState extends State<GameScreen> {
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: <Widget>[
-                            Container(
-                              padding: EdgeInsets.only(top: 0.6),
-                              child: IconButton(
-                                tooltip: 'Home',
-                                highlightColor: Colors.transparent,
-                                splashColor: Colors.transparent,
-                                iconSize: 30,
-                                icon: Icon(MdiIcons.home),
-                                onPressed: () {
-                                  Alert(
-                                    context: context,
-                                    style: kExitAlertStyle,
-                                    title: "Exit current game?",
-                                    buttons: [
-                                      DialogButton(
-                                        radius: BorderRadius.circular(10),
-                                        child: Text(
-                                          "Yes",
-                                          style: kDialogButtonTextStyle,
-                                        ),
-                                        onPressed: () {
-                                          Navigator.pushAndRemoveUntil(
-                                            context,
-                                            MaterialPageRoute(
-                                                builder: (context) =>
-                                                    HomeScreen()),
-                                            ModalRoute.withName('homePage'),
-                                          );
-                                        },
-                                        width: 87,
-                                        color: Colors.green,
-                                        height: 48,
+                            Row(
+                              children: <Widget>[
+                                Stack(
+                                  children: <Widget>[
+                                    Container(
+                                      padding: EdgeInsets.only(top: 0.6),
+                                      child: IconButton(
+                                        tooltip: 'Home',
+                                        highlightColor: Colors.transparent,
+                                        splashColor: Colors.transparent,
+                                        iconSize: 39,
+                                        icon: Icon(MdiIcons.heart),
+                                        onPressed: () {},
                                       ),
-                                      DialogButton(
-                                        radius: BorderRadius.circular(10),
-                                        child: Text(
-                                          "No",
-                                          style: kDialogButtonTextStyle,
+                                    ),
+                                    Container(
+                                      padding: EdgeInsets.fromLTRB(
+                                          8.48, 8.45, 0.8, 0.8),
+                                      alignment: Alignment.center,
+                                      child: SizedBox(
+                                        height: 38,
+                                        width: 38,
+                                        child: Center(
+                                          child: Padding(
+                                            padding: const EdgeInsets.all(2.0),
+                                            child: Text(
+                                              '3',
+                                              style: TextStyle(
+                                                  color: Color(0xFF2C1E68),
+                                                  fontSize: 19,
+                                                  fontWeight: FontWeight.bold,
+                                                  fontFamily: 'FiraMono'),
+                                            ),
+                                          ),
                                         ),
-                                        onPressed: () {
-                                          setState(() {
-                                            Navigator.pop(context);
-                                          });
-                                        },
-                                        width: 87,
-                                        color: Colors.red,
-                                        height: 48,
                                       ),
-                                    ],
-                                  ).show();
-                                },
-                              ),
+                                    )
+                                  ],
+                                ),
+                              ],
                             ),
                             Container(
                               child: Text(
@@ -250,7 +238,7 @@ class _GameScreenState extends State<GameScreen> {
                             Container(
                               child: IconButton(
                                 tooltip: 'Hint',
-                                iconSize: 30,
+                                iconSize: 39,
                                 icon: Icon(MdiIcons.lightbulb),
                                 highlightColor: Colors.transparent,
                                 splashColor: Colors.transparent,
