@@ -25,10 +25,9 @@ flutter:
     - images/
     - res/
   fonts:
-    - family: AmaticSC
+    - family: PatrickHand
       fonts:
-        - asset: fonts/AmaticSC-Regular.ttf
-        - asset: fonts/AmaticSC-Bold.ttf
+        - asset: fonts/PatrickHand-Regular.ttf
     - family: FiraMono
       fonts:
         - asset: fonts/FiraMono-Bold.ttf
