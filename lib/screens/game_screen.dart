@@ -257,7 +257,7 @@ class _GameScreenState extends State<GameScreen> {
                                     Container(
                                       padding: EdgeInsets.only(top: 0.6),
                                       child: IconButton(
-                                        tooltip: 'Home',
+                                        tooltip: 'Lives',
                                         highlightColor: Colors.transparent,
                                         splashColor: Colors.transparent,
                                         iconSize: 39,
@@ -266,8 +266,8 @@ class _GameScreenState extends State<GameScreen> {
                                       ),
                                     ),
                                     Container(
-                                      padding:
-                                          EdgeInsets.fromLTRB(8, 7.5, 0, 0.8),
+                                      padding: EdgeInsets.fromLTRB(
+                                          8.4, 7.85, 0, 0.8),
                                       alignment: Alignment.center,
                                       child: SizedBox(
                                         height: 38,
