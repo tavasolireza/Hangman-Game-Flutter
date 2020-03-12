@@ -19,6 +19,7 @@ class GameScreen extends StatefulWidget {
 }
 
 class _GameScreenState extends State<GameScreen> {
+  int lives = 5;
   Alphabet englishAlphabet = Alphabet();
   String word;
   String hiddenWord;
@@ -31,6 +32,17 @@ class _GameScreenState extends State<GameScreen> {
   bool finishedGame = false;
   bool resetGame = false;
 
+  void newGame() {
+    setState(() {
+      englishAlphabet = Alphabet();
+      lives = 5;
+      wordCount = 0;
+      finishedGame = false;
+      resetGame = false;
+      initWords();
+    });
+  }
+
   Widget createButton(index) {
     return Container(
       padding: EdgeInsets.symmetric(horizontal: 3.5, vertical: 6.0),
@@ -40,6 +52,14 @@ class _GameScreenState extends State<GameScreen> {
           onPress: buttonStatus[index] ? () => wordPress(index) : null,
         ),
       ),
+    );
+  }
+
+  void returnHomePage() {
+    Navigator.pushAndRemoveUntil(
+      context,
+      MaterialPageRoute(builder: (context) => HomeScreen()),
+      ModalRoute.withName('homePage'),
     );
   }
 
@@ -54,14 +74,12 @@ class _GameScreenState extends State<GameScreen> {
     wordList = [];
     hintLetters = [];
     word = widget.hangmanObject.getWord();
+//    print
+    print('this is word ' + word);
     if (word.length != 0) {
       hiddenWord = widget.hangmanObject.getHiddenWord(word.length);
     } else {
-      Navigator.pushAndRemoveUntil(
-        context,
-        MaterialPageRoute(builder: (context) => HomeScreen()),
-        ModalRoute.withName('homePage'),
-      );
+      returnHomePage();
     }
 
     for (int i = 0; i < word.length; i++) {
@@ -98,31 +116,75 @@ class _GameScreenState extends State<GameScreen> {
 
       if (hangState == 6) {
         finishedGame = true;
-        Alert(
-          context: context,
-          style: kFailedAlertStyle,
-          type: AlertType.error,
-          title: word,
-          desc: "You failed!",
-          buttons: [
-            DialogButton(
-              radius: BorderRadius.circular(10),
-              child: Text(
-                "Next Word",
-                style: kDialogButtonTextStyle,
+        lives -= 1;
+        if (lives < 1) {
+          Alert(
+              style: kGameOverAlertStyle,
+              context: context,
+              title: "Game Over!",
+              desc: "Your score is $wordCount",
+//              content: Column(
+//                children: <Widget>[
+//                  TextField(
+//                    decoration: InputDecoration(
+////                      icon: Icon(Icons.account_circle),
+//                      labelText: 'Enter your name',
+//                    ),
+//                  ),
+//                ],
+//              ),
+              buttons: [
+                DialogButton(
+                  onPressed: () {
+                    newGame();
+                    Navigator.pop(context);
+                  },
+                  child: Text(
+                    "New Game",
+                    style: kDialogButtonTextStyle,
+                  ),
+                  width: 118,
+                  color: kDialogButtonColor,
+                  height: 50,
+                ),
+                DialogButton(
+                  onPressed: () => returnHomePage(),
+                  child: Text(
+                    "Home",
+                    style: kDialogButtonTextStyle,
+                  ),
+                  width: 118,
+                  color: kDialogButtonColor,
+                  height: 50,
+                ),
+              ]).show();
+        } else {
+          Alert(
+            context: context,
+            style: kFailedAlertStyle,
+            type: AlertType.error,
+            title: word,
+//            desc: "You Lost!",
+            buttons: [
+              DialogButton(
+                radius: BorderRadius.circular(10),
+                child: Text(
+                  "Next Word",
+                  style: kDialogButtonTextStyle,
+                ),
+                onPressed: () {
+                  setState(() {
+                    Navigator.pop(context);
+                    initWords();
+                  });
+                },
+                width: 127,
+                color: kDialogButtonColor,
+                height: 52,
               ),
-              onPressed: () {
-                setState(() {
-                  Navigator.pop(context);
-                  initWords();
-                });
-              },
-              width: 118,
-              color: kDialogButtonColor,
-              height: 50,
-            )
-          ],
-        ).show();
+            ],
+          ).show();
+        }
       }
 
       buttonStatus[index] = false;
@@ -133,7 +195,7 @@ class _GameScreenState extends State<GameScreen> {
           style: kSuccessAlertStyle,
           type: AlertType.success,
           title: word,
-          desc: "You guessed it right!",
+//          desc: "You guessed it right!",
           buttons: [
             DialogButton(
               radius: BorderRadius.circular(10),
@@ -148,9 +210,9 @@ class _GameScreenState extends State<GameScreen> {
                   initWords();
                 });
               },
-              width: 118,
+              width: 127,
               color: kDialogButtonColor,
-              height: 50,
+              height: 52,
             )
           ],
         ).show();
@@ -204,8 +266,8 @@ class _GameScreenState extends State<GameScreen> {
                                       ),
                                     ),
                                     Container(
-                                      padding: EdgeInsets.fromLTRB(
-                                          8.48, 8.45, 0.8, 0.8),
+                                      padding:
+                                          EdgeInsets.fromLTRB(8, 7.5, 0, 0.8),
                                       alignment: Alignment.center,
                                       child: SizedBox(
                                         height: 38,
@@ -214,12 +276,15 @@ class _GameScreenState extends State<GameScreen> {
                                           child: Padding(
                                             padding: const EdgeInsets.all(2.0),
                                             child: Text(
-                                              '3',
+                                              lives.toString() == "1"
+                                                  ? "I"
+                                                  : lives.toString(),
                                               style: TextStyle(
-                                                  color: Color(0xFF2C1E68),
-                                                  fontSize: 19,
-                                                  fontWeight: FontWeight.bold,
-                                                  fontFamily: 'FiraMono'),
+                                                color: Color(0xFF2C1E68),
+                                                fontSize: 21,
+                                                fontWeight: FontWeight.bold,
+                                                fontFamily: 'PatrickHand',
+                                              ),
                                             ),
                                           ),
                                         ),
@@ -231,7 +296,7 @@ class _GameScreenState extends State<GameScreen> {
                             ),
                             Container(
                               child: Text(
-                                '$wordCount',
+                                wordCount == 1 ? "I" : '$wordCount',
                                 style: kWordCounterTextStyle,
                               ),
                             ),

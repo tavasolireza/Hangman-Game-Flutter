@@ -28,7 +28,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 style: TextStyle(
                     color: Colors.white,
                     fontSize: 55.0,
-                    fontWeight: FontWeight.w900,
+                    fontWeight: FontWeight.w300,
                     letterSpacing: 3.0),
               ),
             ),
@@ -46,25 +46,49 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
           ),
           SizedBox(
-            height: height * 0.07,
+            height: height * 0.055,
           ),
           Center(
-            child: Container(
-              width: 140,
-              height: 59,
-              child: ActionButton(
-                buttonTitle: 'New Game',
-                onPress: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => GameScreen(
-                        hangmanObject: widget.hangmanWords,
-                      ),
-                    ),
-                  );
-                },
-              ),
+            child: Column(
+              children: <Widget>[
+                Container(
+                  width: 150,
+                  height: 59,
+                  child: ActionButton(
+                    buttonTitle: 'New Game',
+                    onPress: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => GameScreen(
+                            hangmanObject: widget.hangmanWords,
+                          ),
+                        ),
+                      );
+                    },
+                  ),
+                ),
+                SizedBox(
+                  height: 15.0,
+                ),
+                Container(
+                  width: 150,
+                  height: 59,
+                  child: ActionButton(
+                    buttonTitle: 'High Scores',
+                    onPress: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => GameScreen(
+                            hangmanObject: widget.hangmanWords,
+                          ),
+                        ),
+                      );
+                    },
+                  ),
+                ),
+              ],
             ),
           ),
         ],
