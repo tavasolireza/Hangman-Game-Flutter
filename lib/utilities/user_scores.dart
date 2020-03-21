@@ -7,7 +7,7 @@ class Score {
 
   Map<String, dynamic> toMap() {
     return {
-      'id': id,
+//      'id': id,
       'scoreDate': scoreDate,
       'userScore': userScore,
     };
@@ -17,6 +17,6 @@ class Score {
   // each dog when using the print statement.
   @override
   String toString() {
-    return 'Dog{id: $id, scoreDate: $scoreDate, userScore: $userScore}';
+    return 'Score{id: $id, scoreDate: $scoreDate, userScore: $userScore}';
   }
 }
