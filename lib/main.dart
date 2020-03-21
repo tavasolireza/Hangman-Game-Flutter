@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_hangman/screens/home_screen.dart';
 import 'package:flutter_hangman/utilities/constants.dart';
+import 'package:flutter_hangman/screens/score_screen.dart';
 
 void main() {
   return runApp(MyApp());
@@ -35,6 +36,7 @@ class MyApp extends StatelessWidget {
       initialRoute: 'homePage',
       routes: {
         'homePage': (context) => HomeScreen(),
+        'scorePage': (context) => ScoreScreen(),
       },
     );
   }
