@@ -17,6 +17,6 @@ class Score {
   // each dog when using the print statement.
   @override
   String toString() {
-    return 'Score{id: $id, scoreDate: $scoreDate, userScore: $userScore}';
+    return '$id,$scoreDate,$userScore';
   }
 }

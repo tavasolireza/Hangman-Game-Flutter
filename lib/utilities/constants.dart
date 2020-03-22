@@ -18,6 +18,13 @@ const kWordButtonTextStyle = TextStyle(
   fontSize: 27,
 );
 
+const kHighScoreTableHeaders = TextStyle(
+  color: Colors.white,
+  fontSize: 30.0,
+  fontWeight: FontWeight.w300,
+  letterSpacing: 1.0,
+);
+
 var kSuccessAlertStyle = AlertStyle(
   animationType: AnimationType.grow,
   isCloseButton: false,
