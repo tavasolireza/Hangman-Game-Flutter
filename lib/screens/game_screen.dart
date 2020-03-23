@@ -8,6 +8,8 @@ import 'package:flutter_hangman/utilities/hangman_words.dart';
 import 'package:rflutter_alert/rflutter_alert.dart';
 import 'dart:math';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
+import 'package:flutter_hangman/utilities/score_db.dart' as score_database;
+import 'package:flutter_hangman/utilities/user_scores.dart';
 
 class GameScreen extends StatefulWidget {
   GameScreen({@required this.hangmanObject});
@@ -19,6 +21,7 @@ class GameScreen extends StatefulWidget {
 }
 
 class _GameScreenState extends State<GameScreen> {
+  final database = score_database.openDB();
   int lives = 5;
   Alphabet englishAlphabet = Alphabet();
   String word;
@@ -118,6 +121,11 @@ class _GameScreenState extends State<GameScreen> {
         finishedGame = true;
         lives -= 1;
         if (lives < 1) {
+          Score score = Score(
+              id: 1,
+              scoreDate: DateTime.now().toString(),
+              userScore: wordCount);
+          score_database.main(0, score, database);
           Alert(
               style: kGameOverAlertStyle,
               context: context,
@@ -255,7 +263,7 @@ class _GameScreenState extends State<GameScreen> {
                                 Stack(
                                   children: <Widget>[
                                     Container(
-                                      padding: EdgeInsets.only(top: 0.6),
+                                      padding: EdgeInsets.only(top: 0.5),
                                       child: IconButton(
                                         tooltip: 'Lives',
                                         highlightColor: Colors.transparent,
@@ -281,7 +289,7 @@ class _GameScreenState extends State<GameScreen> {
                                                   : lives.toString(),
                                               style: TextStyle(
                                                 color: Color(0xFF2C1E68),
-                                                fontSize: 21,
+                                                fontSize: 20,
                                                 fontWeight: FontWeight.bold,
                                                 fontFamily: 'PatrickHand',
                                               ),

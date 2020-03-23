@@ -25,6 +25,13 @@ const kHighScoreTableHeaders = TextStyle(
   letterSpacing: 1.0,
 );
 
+const kHighScoreTableRowsStyle = TextStyle(
+  color: Colors.white,
+  fontSize: 27.0,
+  fontWeight: FontWeight.w300,
+  letterSpacing: 1.0,
+);
+
 var kSuccessAlertStyle = AlertStyle(
   animationType: AnimationType.grow,
   isCloseButton: false,

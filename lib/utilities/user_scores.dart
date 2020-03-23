@@ -15,8 +15,9 @@ class Score {
 
   // Implement toString to make it easier to see information about
   // each dog when using the print statement.
+
   @override
   String toString() {
-    return '$id,$scoreDate,$userScore';
+    return '$userScore,$scoreDate,$id';
   }
 }
