@@ -1,7 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_hangman/utilities/score_db.dart' as score_database;
-import 'package:flutter_hangman/utilities/user_scores.dart';
-import 'package:sqflite/sqflite.dart';
 import 'package:flutter_hangman/utilities/constants.dart';
 import 'package:date_format/date_format.dart';
 
@@ -132,22 +129,32 @@ class ScoreScreen extends StatelessWidget {
 //    print(query.length);
     return Scaffold(
       body: SafeArea(
-        child: Column(
-          children: <Widget>[
-            Center(
-              child: Container(
-//                height: 80,
-                margin: EdgeInsets.fromLTRB(8.0, 10.0, 8.0, 15.0),
+        child: query.length == 0
+            ? Center(
                 child: Text(
-                  'High Scores',
+                  "No Scores Yet!",
                   style: TextStyle(
+                    fontSize: 30.0,
                     color: Colors.white,
-                    fontSize: 45.0,
-                    fontWeight: FontWeight.w300,
                   ),
                 ),
-              ),
-            ),
+              )
+            : Column(
+                children: <Widget>[
+                  Center(
+                    child: Container(
+//                height: 80,
+                      margin: EdgeInsets.fromLTRB(8.0, 10.0, 8.0, 15.0),
+                      child: Text(
+                        'High Scores',
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 45.0,
+                          fontWeight: FontWeight.w300,
+                        ),
+                      ),
+                    ),
+                  ),
 //            Padding(
 //              padding: const EdgeInsets.fromLTRB(20.0, 1.0, 20.0, 1.0),
 //              child: Row(
@@ -177,18 +184,19 @@ class ScoreScreen extends StatelessWidget {
 //                ],
 //              ),
 //            ),
-            Expanded(
-              child: Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Table(
-                  defaultVerticalAlignment: TableCellVerticalAlignment.middle,
-                  textBaseline: TextBaseline.alphabetic,
-                  children: createRow(query),
-                ),
+                  Expanded(
+                    child: Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Table(
+                        defaultVerticalAlignment:
+                            TableCellVerticalAlignment.middle,
+                        textBaseline: TextBaseline.alphabetic,
+                        children: createRow(query),
+                      ),
+                    ),
+                  ),
+                ],
               ),
-            ),
-          ],
-        ),
       ),
     );
   }
