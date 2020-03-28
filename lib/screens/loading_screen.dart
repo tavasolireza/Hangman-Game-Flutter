@@ -18,7 +18,7 @@ class _LoadingScreenState extends State<LoadingScreen> {
   void queryScores() async {
     final database = score_database.openDB();
     var queryResult = await score_database.scores(database);
-    Navigator.push(
+    Navigator.pushReplacement(
       context,
       MaterialPageRoute(
         builder: (context) {
