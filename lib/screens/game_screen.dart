@@ -37,6 +37,7 @@ class _GameScreenState extends State<GameScreen> {
 
   void newGame() {
     setState(() {
+      widget.hangmanObject.resetWords();
       englishAlphabet = Alphabet();
       lives = 5;
       wordCount = 0;
@@ -92,6 +93,10 @@ class _GameScreenState extends State<GameScreen> {
   }
 
   void wordPress(int index) {
+    if (lives == 0) {
+      returnHomePage();
+    }
+
     if (finishedGame) {
       setState(() {
         resetGame = true;
@@ -121,49 +126,38 @@ class _GameScreenState extends State<GameScreen> {
         finishedGame = true;
         lives -= 1;
         if (lives < 1) {
-          Score score = Score(
-              id: 1,
-              scoreDate: DateTime.now().toString(),
-              userScore: wordCount);
-          score_database.main(0, score, database);
+          if (wordCount > 0) {
+            Score score = Score(
+                id: 1,
+                scoreDate: DateTime.now().toString(),
+                userScore: wordCount);
+            score_database.manipulateDatabase(score, database);
+          }
           Alert(
               style: kGameOverAlertStyle,
               context: context,
               title: "Game Over!",
               desc: "Your score is $wordCount",
-//              content: Column(
-//                children: <Widget>[
-//                  TextField(
-//                    decoration: InputDecoration(
-////                      icon: Icon(Icons.account_circle),
-//                      labelText: 'Enter your name',
-//                    ),
-//                  ),
-//                ],
-//              ),
               buttons: [
+                DialogButton(
+                  onPressed: () => returnHomePage(),
+                  child: Icon(
+                    MdiIcons.home,
+                    size: 30.0,
+                  ),
+//                  width: 90,
+                  color: kDialogButtonColor,
+//                  height: 50,
+                ),
                 DialogButton(
                   onPressed: () {
                     newGame();
                     Navigator.pop(context);
                   },
-                  child: Text(
-                    "New Game",
-                    style: kDialogButtonTextStyle,
-                  ),
-                  width: 118,
+                  child: Icon(MdiIcons.refresh, size: 30.0),
+//                  width: 90,
                   color: kDialogButtonColor,
-                  height: 50,
-                ),
-                DialogButton(
-                  onPressed: () => returnHomePage(),
-                  child: Text(
-                    "Home",
-                    style: kDialogButtonTextStyle,
-                  ),
-                  width: 118,
-                  color: kDialogButtonColor,
-                  height: 50,
+//                  height: 20,
                 ),
               ]).show();
         } else {
@@ -176,9 +170,9 @@ class _GameScreenState extends State<GameScreen> {
             buttons: [
               DialogButton(
                 radius: BorderRadius.circular(10),
-                child: Text(
-                  "Next Word",
-                  style: kDialogButtonTextStyle,
+                child: Icon(
+                  MdiIcons.arrowRightThick,
+                  size: 30.0,
                 ),
                 onPressed: () {
                   setState(() {
@@ -207,9 +201,9 @@ class _GameScreenState extends State<GameScreen> {
           buttons: [
             DialogButton(
               radius: BorderRadius.circular(10),
-              child: Text(
-                "Next Word",
-                style: kDialogButtonTextStyle,
+              child: Icon(
+                MdiIcons.arrowRightThick,
+                size: 30.0,
               ),
               onPressed: () {
                 setState(() {
@@ -275,7 +269,7 @@ class _GameScreenState extends State<GameScreen> {
                                     ),
                                     Container(
                                       padding: EdgeInsets.fromLTRB(
-                                          8.4, 7.85, 0, 0.8),
+                                          8.5, 7.85, 0, 0.8),
                                       alignment: Alignment.center,
                                       child: SizedBox(
                                         height: 38,
@@ -362,7 +356,7 @@ class _GameScreenState extends State<GameScreen> {
                     ],
                   )),
               Container(
-                padding: EdgeInsets.fromLTRB(5.0, 2.0, 5.0, 8.0),
+                padding: EdgeInsets.fromLTRB(6.0, 2.0, 6.0, 10.0),
                 child: Table(
                   defaultVerticalAlignment: TableCellVerticalAlignment.baseline,
                   textBaseline: TextBaseline.alphabetic,
