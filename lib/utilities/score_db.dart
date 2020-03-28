@@ -72,60 +72,7 @@ Future<void> deleteScore(int id, final database) async {
   );
 }
 
-void main(int mode, Score scoreObject, final database) async {
-//  final database = openDB();
-
-//  var fido = Score(
-//    id: 1,
-//    scoreDate: DateTime.now().toString(),
-//    userScore: 200,
-//  );
-
-  // Insert a dog into the database.
+void manipulateDatabase(Score scoreObject, final database) async {
   await insertScore(scoreObject, database);
-
-  // Print the list of dogs (only Fido for now).
   print(await scores(database));
-
-  // Update Fido's age and save it to the database.
-//  fido = Score(
-//    id: fido.id,
-//    scoreDate: fido.scoreDate,
-//    userScore: fido.userScore + 7,
-//  );
-//  await updateScore(fido);
-//
-//  // Print Fido's updated information.
-//  print(await scores());
-
-  // Delete Fido from the database.
-
-//  await deleteScore(fido.id);
-
-  // Print the list of dogs (empty).
-
-//  print(await scores());
 }
-
-//class Score {
-//  final int id;
-//  final DateTime scoreDate;
-//  final int userScore;
-//
-//  Score({this.id, this.scoreDate, this.userScore});
-//
-//  Map<String, dynamic> toMap() {
-//    return {
-//      'id': id,
-//      'scoreDate': scoreDate,
-//      'userScore': userScore,
-//    };
-//  }
-//
-//  // Implement toString to make it easier to see information about
-//  // each dog when using the print statement.
-//  @override
-//  String toString() {
-//    return 'Dog{id: $scoreDate, name: $userScore, age: $userScore}';
-//  }
-//}
