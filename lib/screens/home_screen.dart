@@ -3,6 +3,7 @@ import 'package:flutter/painting.dart';
 import 'package:flutter_hangman/components/action_button.dart';
 import 'package:flutter_hangman/utilities/hangman_words.dart';
 import 'game_screen.dart';
+import 'loading_screen.dart';
 
 class HomeScreen extends StatefulWidget {
   final HangmanWords hangmanWords = HangmanWords();
@@ -22,12 +23,12 @@ class _HomeScreenState extends State<HomeScreen> {
         children: <Widget>[
           Center(
             child: Container(
-              margin: EdgeInsets.all(8.0),
+              margin: EdgeInsets.fromLTRB(8.0, 10.0, 8.0, 8.0),
               child: Text(
                 'HANGMAN',
                 style: TextStyle(
                     color: Colors.white,
-                    fontSize: 55.0,
+                    fontSize: 58.0,
                     fontWeight: FontWeight.w300,
                     letterSpacing: 3.0),
               ),
@@ -46,7 +47,7 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
           ),
           SizedBox(
-            height: height * 0.055,
+            height: height * 0.049,
           ),
           Center(
             child: IntrinsicWidth(
@@ -55,7 +56,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 children: <Widget>[
                   Container(
 //                    width: 155,
-                    height: 62,
+                    height: 64,
                     child: ActionButton(
                       buttonTitle: 'Start',
                       onPress: () {
@@ -71,15 +72,20 @@ class _HomeScreenState extends State<HomeScreen> {
                     ),
                   ),
                   SizedBox(
-                    height: 15.0,
+                    height: 18.0,
                   ),
                   Container(
 //                    width: 155,
-                    height: 65,
+                    height: 64,
                     child: ActionButton(
                       buttonTitle: 'High Scores',
                       onPress: () {
-                        Navigator.pushNamed(context, 'scorePage');
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => LoadingScreen(),
+                          ),
+                        );
                       },
                     ),
                   ),
