@@ -101,14 +101,33 @@ class ScoreScreen extends StatelessWidget {
     return Scaffold(
       body: SafeArea(
         child: query.length == 0
-            ? Center(
-                child: Text(
-                  "No Scores Yet!",
-                  style: TextStyle(
-                    fontSize: 30.0,
-                    color: Colors.white,
+            ? Stack(
+//                crossAxisAlignment: CrossAxisAlignment.stretch,
+                children: <Widget>[
+                  Center(
+                    child: Text(
+                      "No Scores Yet!",
+                      style: TextStyle(
+                        fontSize: 30.0,
+                        color: Colors.white,
+                      ),
+                    ),
                   ),
-                ),
+                  Container(
+                    padding: EdgeInsets.fromLTRB(6.0, 10.0, 6.0, 15.0),
+                    alignment: Alignment.topLeft,
+                    child: IconButton(
+                      tooltip: 'Home',
+                      iconSize: 35,
+                      icon: Icon(MdiIcons.home),
+                      highlightColor: Colors.transparent,
+                      splashColor: Colors.transparent,
+                      onPressed: () {
+                        Navigator.pop(context);
+                      },
+                    ),
+                  ),
+                ],
               )
             : Column(
                 children: <Widget>[
