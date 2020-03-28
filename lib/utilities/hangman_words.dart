@@ -14,7 +14,7 @@ class HangmanWords {
   void resetWords() {
     wordCounter = 0;
     _usedNumbers = [];
-    _words = [];
+//    _words = [];
   }
 
   // ignore: missing_return
