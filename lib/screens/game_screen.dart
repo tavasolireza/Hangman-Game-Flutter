@@ -140,6 +140,7 @@ class _GameScreenState extends State<GameScreen> {
               desc: "Your score is $wordCount",
               buttons: [
                 DialogButton(
+                  width: 62,
                   onPressed: () => returnHomePage(),
                   child: Icon(
                     MdiIcons.home,
@@ -150,6 +151,7 @@ class _GameScreenState extends State<GameScreen> {
 //                  height: 50,
                 ),
                 DialogButton(
+                  width: 62,
                   onPressed: () {
                     newGame();
                     Navigator.pop(context);
@@ -268,8 +270,8 @@ class _GameScreenState extends State<GameScreen> {
                                       ),
                                     ),
                                     Container(
-                                      padding: EdgeInsets.fromLTRB(
-                                          8.5, 7.85, 0, 0.8),
+                                      padding:
+                                          EdgeInsets.fromLTRB(8.7, 7.9, 0, 0.8),
                                       alignment: Alignment.center,
                                       child: SizedBox(
                                         height: 38,

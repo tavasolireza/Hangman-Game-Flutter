@@ -2,16 +2,18 @@ import 'package:flutter/material.dart';
 import 'package:rflutter_alert/rflutter_alert.dart';
 
 const kActionButtonTextStyle = TextStyle(
-  fontSize: 26,
+  fontSize: 25,
   color: Colors.white,
   fontWeight: FontWeight.w300,
   letterSpacing: 0.5,
 );
-const kActionButtonColor = Color(0xFF3e64ff);
-const kActionButtonHighlightColor = Color(0xFF3e64ff);
 
-const kWordButtonColor = Color(0xFF3e64ff);
-const kTooltipColor = Color(0xFF3e64ff);
+const kActionButtonColor = Color(0xFF1089ff);
+const kActionButtonHighlightColor = Color(0xFF1089ff);
+
+
+const kWordButtonColor = Color(0xFF1089ff);
+const kTooltipColor = Color(0xFF1089ff);
 
 const kWordButtonTextStyle = TextStyle(
   fontWeight: FontWeight.w600,
@@ -124,7 +126,7 @@ const kWordTextStyle = TextStyle(
     fontFamily: 'FiraMono',
     letterSpacing: 8);
 
-const kDialogButtonColor = Color(0xFF3e64ff);
+const kDialogButtonColor = Color(0x00000000);
 
 const kWordCounterTextStyle =
     TextStyle(fontSize: 29.5, color: Colors.white, fontWeight: FontWeight.w900);
