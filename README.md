@@ -8,9 +8,9 @@ A hangman game written in Dart with Flutter framework. Player has 5 lives in eac
 ## Screenshots
 <img src="./res/documentation/hangman_animation.gif" width="240" height="500" />
 
-<img align="center" width="350" src="./res/documentation/pre1.png"><img align="center" width="350" src="./res/documentation/pre2.png">
+<img align="center" width="350" src="./res/documentation/pre1.png"  hspace="50" ><img align="center" width="350" src="./res/documentation/pre2.png">
 
-<img align="center" width="350"  src="./res/documentation/pre3.png"><img width="350" align="center" src="./res/documentation/pre4.png">
+<img align="center" width="350"  src="./res/documentation/pre3.png"  hspace="50" ><img width="350" align="center" src="./res/documentation/pre4.png">
 
 
 App screenshots created with <a href="https://previewed.app/">Previewed</a>
