@@ -23,7 +23,7 @@ class _HomeScreenState extends State<HomeScreen> {
         children: <Widget>[
           Center(
             child: Container(
-              margin: EdgeInsets.fromLTRB(8.0, 10.0, 8.0, 8.0),
+              margin: EdgeInsets.fromLTRB(8.0, 1.0, 8.0, 8.0),
               child: Text(
                 'HANGMAN',
                 style: TextStyle(
@@ -34,20 +34,17 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
             ),
           ),
-          SizedBox(
-            height: height * 0.012,
-          ),
           Center(
             child: Container(
-              padding: EdgeInsets.all(5.0),
+//              padding: EdgeInsets.all(5.0),
               child: Image.asset(
                 'images/gallow.png',
-                height: height * 0.5,
+                height: height * 0.49,
               ),
             ),
           ),
           SizedBox(
-            height: height * 0.049,
+            height: 15.0,
           ),
           Center(
             child: IntrinsicWidth(

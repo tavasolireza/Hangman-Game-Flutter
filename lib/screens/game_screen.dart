@@ -140,7 +140,7 @@ class _GameScreenState extends State<GameScreen> {
               desc: "Your score is $wordCount",
               buttons: [
                 DialogButton(
-                  width: 62,
+//                  width: 20,
                   onPressed: () => returnHomePage(),
                   child: Icon(
                     MdiIcons.home,
@@ -151,7 +151,7 @@ class _GameScreenState extends State<GameScreen> {
 //                  height: 50,
                 ),
                 DialogButton(
-                  width: 62,
+//                  width: 20,
                   onPressed: () {
                     newGame();
                     Navigator.pop(context);
@@ -250,7 +250,7 @@ class _GameScreenState extends State<GameScreen> {
                   child: Column(
                     children: <Widget>[
                       Padding(
-                        padding: const EdgeInsets.fromLTRB(6.0, 8.0, 6.0, 45.0),
+                        padding: const EdgeInsets.fromLTRB(6.0, 8.0, 6.0, 35.0),
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: <Widget>[
@@ -327,7 +327,7 @@ class _GameScreenState extends State<GameScreen> {
                         ),
                       ),
                       Expanded(
-                        flex: 1,
+                        flex: 6,
                         child: Container(
                           alignment: Alignment.bottomCenter,
                           child: FittedBox(
@@ -342,9 +342,9 @@ class _GameScreenState extends State<GameScreen> {
                         ),
                       ),
                       Expanded(
-                        flex: 1,
+                        flex: 5,
                         child: Container(
-                          margin: EdgeInsets.symmetric(horizontal: 30.0),
+                          margin: EdgeInsets.symmetric(horizontal: 35.0),
                           alignment: Alignment.center,
                           child: FittedBox(
                             fit: BoxFit.fitWidth,
@@ -358,7 +358,7 @@ class _GameScreenState extends State<GameScreen> {
                     ],
                   )),
               Container(
-                padding: EdgeInsets.fromLTRB(6.0, 2.0, 6.0, 10.0),
+                padding: EdgeInsets.fromLTRB(10.0, 2.0, 8.0, 10.0),
                 child: Table(
                   defaultVerticalAlignment: TableCellVerticalAlignment.baseline,
                   textBaseline: TextBaseline.alphabetic,
