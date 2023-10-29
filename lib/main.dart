@@ -5,13 +5,15 @@ import 'package:flutter_hangman/utilities/constants.dart';
 import 'package:flutter_hangman/screens/score_screen.dart';
 
 void main() {
-  return runApp(MyApp());
+  runApp(const MainApp());
 }
 
-class MyApp extends StatelessWidget {
+class MainApp extends StatelessWidget {
+  const MainApp({super.key});
+
   @override
   Widget build(BuildContext context) {
-    SystemChrome.setEnabledSystemUIOverlays([]);
+    SystemChrome.setEnabledSystemUIMode(SystemUiMode.manual, overlays: []);
     SystemChrome.setPreferredOrientations([
       DeviceOrientation.portraitUp,
       DeviceOrientation.portraitDown,
@@ -23,14 +25,14 @@ class MyApp extends StatelessWidget {
             color: kTooltipColor,
             borderRadius: BorderRadius.circular(5.0),
           ),
-          textStyle: TextStyle(
+          textStyle: const TextStyle(
             fontWeight: FontWeight.w900,
             fontSize: 20.0,
             letterSpacing: 1.0,
             color: Colors.white,
           ),
         ),
-        scaffoldBackgroundColor: Color(0xFF421b9b),
+        scaffoldBackgroundColor: const Color(0xFF421b9b),
         textTheme: Theme.of(context).textTheme.apply(fontFamily: 'PatrickHand'),
       ),
       initialRoute: 'homePage',

@@ -37,12 +37,12 @@ var kSuccessAlertStyle = AlertStyle(
   animationType: AnimationType.grow,
   isCloseButton: false,
   isOverlayTapDismiss: false,
-  animationDuration: Duration(milliseconds: 500),
-  backgroundColor: Color(0xFF2C1E68),
+  animationDuration: const Duration(milliseconds: 500),
+  backgroundColor: const Color(0xFF2C1E68),
   alertBorder: RoundedRectangleBorder(
     borderRadius: BorderRadius.circular(10.0),
   ),
-  titleStyle: TextStyle(
+  titleStyle: const TextStyle(
     color: Color(0xFF00e676),
     fontWeight: FontWeight.bold,
     fontSize: 30.0,
@@ -53,18 +53,18 @@ var kExitAlertStyle = AlertStyle(
   animationType: AnimationType.grow,
   isCloseButton: false,
   isOverlayTapDismiss: false,
-  descStyle: TextStyle(
+  descStyle: const TextStyle(
     color: Colors.white,
     fontWeight: FontWeight.bold,
     fontSize: 27.0,
     letterSpacing: 2.0,
   ),
-  animationDuration: Duration(milliseconds: 500),
-  backgroundColor: Color(0xFF2C1E68),
+  animationDuration: const Duration(milliseconds: 500),
+  backgroundColor: const Color(0xFF2C1E68),
   alertBorder: RoundedRectangleBorder(
     borderRadius: BorderRadius.circular(10.0),
   ),
-  titleStyle: TextStyle(
+  titleStyle: const TextStyle(
     color: Colors.white,
     fontWeight: FontWeight.bold,
     fontSize: 27.0,
@@ -76,18 +76,18 @@ var kGameOverAlertStyle = AlertStyle(
   animationType: AnimationType.grow,
   isCloseButton: false,
   isOverlayTapDismiss: false,
-  animationDuration: Duration(milliseconds: 450),
-  backgroundColor: Color(0xFF2C1E68),
+  animationDuration: const Duration(milliseconds: 450),
+  backgroundColor: const Color(0xFF2C1E68),
   alertBorder: RoundedRectangleBorder(
     borderRadius: BorderRadius.circular(10.0),
   ),
-  titleStyle: TextStyle(
+  titleStyle: const TextStyle(
     color: Colors.red,
     fontWeight: FontWeight.bold,
     fontSize: 30.0,
     letterSpacing: 1.5,
   ),
-  descStyle: TextStyle(
+  descStyle: const TextStyle(
     color: Colors.lightBlue,
     fontWeight: FontWeight.bold,
     fontSize: 25.0,
@@ -99,12 +99,12 @@ var kFailedAlertStyle = AlertStyle(
   animationType: AnimationType.grow,
   isCloseButton: false,
   isOverlayTapDismiss: false,
-  animationDuration: Duration(milliseconds: 450),
-  backgroundColor: Color(0xFF2C1E68),
+  animationDuration: const Duration(milliseconds: 450),
+  backgroundColor: const Color(0xFF2C1E68),
   alertBorder: RoundedRectangleBorder(
     borderRadius: BorderRadius.circular(10.0),
   ),
-  titleStyle: TextStyle(
+  titleStyle: const TextStyle(
     color: Colors.red,
     fontWeight: FontWeight.bold,
     fontSize: 30.0,
