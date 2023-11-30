@@ -6,16 +6,16 @@ import 'package:material_design_icons_flutter/material_design_icons_flutter.dart
 class ScoreScreen extends StatelessWidget {
   final query;
 
-  ScoreScreen({this.query});
+  const ScoreScreen({super.key, this.query});
 
   List<TableRow> createRow(var query) {
     query.sort((a, b) => b.toString().compareTo(a.toString()));
     List<TableRow> rows = [];
     rows.add(
-      TableRow(
+      const TableRow(
         children: [
           Padding(
-            padding: const EdgeInsets.only(bottom: 15.0),
+            padding: EdgeInsets.only(bottom: 15.0),
             child: Center(
               child: Text(
                 "Rank",
@@ -24,7 +24,7 @@ class ScoreScreen extends StatelessWidget {
             ),
           ),
           Padding(
-            padding: const EdgeInsets.only(bottom: 15.0),
+            padding: EdgeInsets.only(bottom: 15.0),
             child: Center(
               child: Text(
                 "Date",
@@ -33,7 +33,7 @@ class ScoreScreen extends StatelessWidget {
             ),
           ),
           Padding(
-            padding: const EdgeInsets.only(bottom: 15.0),
+            padding: EdgeInsets.only(bottom: 15.0),
             child: Center(
               child: Text(
                 "Score",
@@ -58,7 +58,7 @@ class ScoreScreen extends StatelessWidget {
         child: Padding(
           padding: const EdgeInsets.only(bottom: 8.0),
           child: Text(
-            i < 3 ? topRanks[i] + '${i + 1}' : '${i + 1}',
+            i < 3 ? '${topRanks[i]}${i + 1}' : '${i + 1}',
             style: kHighScoreTableRowsStyle,
             textAlign: TextAlign.center,
           ),
@@ -70,7 +70,7 @@ class ScoreScreen extends StatelessWidget {
           child: FittedBox(
             fit: BoxFit.scaleDown,
             child: Text(
-              '$scoreDate',
+              scoreDate,
               style: kHighScoreTableRowsStyle,
               textAlign: TextAlign.center,
             ),
@@ -81,7 +81,7 @@ class ScoreScreen extends StatelessWidget {
         child: Padding(
           padding: const EdgeInsets.only(bottom: 8.0),
           child: Text(
-            '${row[0]}',
+            row[0],
             style: kHighScoreTableRowsStyle,
             textAlign: TextAlign.center,
           ),
@@ -104,7 +104,7 @@ class ScoreScreen extends StatelessWidget {
             ? Stack(
 //                crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: <Widget>[
-                  Center(
+                  const Center(
                     child: Text(
                       "No Scores Yet!",
                       style: TextStyle(
@@ -114,7 +114,7 @@ class ScoreScreen extends StatelessWidget {
                     ),
                   ),
                   Container(
-                    padding: EdgeInsets.fromLTRB(6.0, 10.0, 6.0, 15.0),
+                    padding: const EdgeInsets.fromLTRB(6.0, 10.0, 6.0, 15.0),
                     alignment: Alignment.topLeft,
                     child: IconButton(
                       tooltip: 'Home',
@@ -135,7 +135,8 @@ class ScoreScreen extends StatelessWidget {
                     alignment: AlignmentDirectional.bottomCenter,
                     children: <Widget>[
                       Container(
-                        padding: EdgeInsets.fromLTRB(6.0, 10.0, 6.0, 15.0),
+                        padding:
+                            const EdgeInsets.fromLTRB(6.0, 10.0, 6.0, 15.0),
                         alignment: Alignment.centerLeft,
                         child: IconButton(
                           tooltip: 'Home',
@@ -150,8 +151,9 @@ class ScoreScreen extends StatelessWidget {
                       ),
                       Center(
                         child: Container(
-                          margin: EdgeInsets.fromLTRB(8.0, 10.0, 8.0, 15.0),
-                          child: Text(
+                          margin:
+                              const EdgeInsets.fromLTRB(8.0, 10.0, 8.0, 15.0),
+                          child: const Text(
                             'High Scores',
                             style: TextStyle(
                               color: Colors.white,

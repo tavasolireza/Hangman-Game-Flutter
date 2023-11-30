@@ -12,24 +12,24 @@ import 'package:flutter_hangman/utilities/score_db.dart' as score_database;
 import 'package:flutter_hangman/utilities/user_scores.dart';
 
 class GameScreen extends StatefulWidget {
-  GameScreen({@required this.hangmanObject});
+  const GameScreen({super.key, required this.hangmanObject});
 
   final HangmanWords hangmanObject;
 
   @override
-  _GameScreenState createState() => _GameScreenState();
+  State<GameScreen> createState() => _GameScreenState();
 }
 
 class _GameScreenState extends State<GameScreen> {
   final database = score_database.openDB();
   int lives = 5;
   Alphabet englishAlphabet = Alphabet();
-  String word;
-  String hiddenWord;
+  late String word;
+  late String hiddenWord;
   List<String> wordList = [];
   List<int> hintLetters = [];
-  List<bool> buttonStatus;
-  bool hintStatus;
+  late List<bool> buttonStatus;
+  late bool hintStatus;
   int hangState = 0;
   int wordCount = 0;
   bool finishedGame = false;
@@ -49,11 +49,11 @@ class _GameScreenState extends State<GameScreen> {
 
   Widget createButton(index) {
     return Container(
-      padding: EdgeInsets.symmetric(horizontal: 3.5, vertical: 6.0),
+      padding: const EdgeInsets.symmetric(horizontal: 3.5, vertical: 6.0),
       child: Center(
         child: WordButton(
           buttonTitle: englishAlphabet.alphabet[index].toUpperCase(),
-          onPress: buttonStatus[index] ? () => wordPress(index) : null,
+          onPress: buttonStatus[index] ? () => wordPress(index) : () {},
         ),
       ),
     );
@@ -78,9 +78,7 @@ class _GameScreenState extends State<GameScreen> {
     wordList = [];
     hintLetters = [];
     word = widget.hangmanObject.getWord();
-//    print
-    print('this is word ' + word);
-    if (word.length != 0) {
+    if (word.isNotEmpty) {
       hiddenWord = widget.hangmanObject.getHiddenWord(word.length);
     } else {
       returnHomePage();
@@ -140,26 +138,20 @@ class _GameScreenState extends State<GameScreen> {
               desc: "Your score is $wordCount",
               buttons: [
                 DialogButton(
-//                  width: 20,
+                  color: kDialogButtonColor,
                   onPressed: () => returnHomePage(),
                   child: Icon(
                     MdiIcons.home,
                     size: 30.0,
                   ),
-//                  width: 90,
-                  color: kDialogButtonColor,
-//                  height: 50,
                 ),
                 DialogButton(
-//                  width: 20,
                   onPressed: () {
                     newGame();
                     Navigator.pop(context);
                   },
-                  child: Icon(MdiIcons.refresh, size: 30.0),
-//                  width: 90,
                   color: kDialogButtonColor,
-//                  height: 20,
+                  child: Icon(MdiIcons.refresh, size: 30.0),
                 ),
               ]).show();
         } else {
@@ -172,6 +164,9 @@ class _GameScreenState extends State<GameScreen> {
             buttons: [
               DialogButton(
                 radius: BorderRadius.circular(10),
+                width: 127,
+                color: kDialogButtonColor,
+                height: 52,
                 child: Icon(
                   MdiIcons.arrowRightThick,
                   size: 30.0,
@@ -182,9 +177,6 @@ class _GameScreenState extends State<GameScreen> {
                     initWords();
                   });
                 },
-                width: 127,
-                color: kDialogButtonColor,
-                height: 52,
               ),
             ],
           ).show();
@@ -203,6 +195,9 @@ class _GameScreenState extends State<GameScreen> {
           buttons: [
             DialogButton(
               radius: BorderRadius.circular(10),
+              width: 127,
+              color: kDialogButtonColor,
+              height: 52,
               child: Icon(
                 MdiIcons.arrowRightThick,
                 size: 30.0,
@@ -214,9 +209,6 @@ class _GameScreenState extends State<GameScreen> {
                   initWords();
                 });
               },
-              width: 127,
-              color: kDialogButtonColor,
-              height: 52,
             )
           ],
         ).show();
@@ -259,7 +251,7 @@ class _GameScreenState extends State<GameScreen> {
                                 Stack(
                                   children: <Widget>[
                                     Container(
-                                      padding: EdgeInsets.only(top: 0.5),
+                                      padding: const EdgeInsets.only(top: 0.5),
                                       child: IconButton(
                                         tooltip: 'Lives',
                                         highlightColor: Colors.transparent,
@@ -270,8 +262,8 @@ class _GameScreenState extends State<GameScreen> {
                                       ),
                                     ),
                                     Container(
-                                      padding:
-                                          EdgeInsets.fromLTRB(8.7, 7.9, 0, 0.8),
+                                      padding: const EdgeInsets.fromLTRB(
+                                          8.7, 7.9, 0, 0.8),
                                       alignment: Alignment.center,
                                       child: SizedBox(
                                         height: 38,
@@ -283,7 +275,7 @@ class _GameScreenState extends State<GameScreen> {
                                               lives.toString() == "1"
                                                   ? "I"
                                                   : lives.toString(),
-                                              style: TextStyle(
+                                              style: const TextStyle(
                                                 color: Color(0xFF2C1E68),
                                                 fontSize: 20,
                                                 fontWeight: FontWeight.bold,
@@ -298,13 +290,13 @@ class _GameScreenState extends State<GameScreen> {
                                 ),
                               ],
                             ),
-                            Container(
+                            SizedBox(
                               child: Text(
                                 wordCount == 1 ? "I" : '$wordCount',
                                 style: kWordCounterTextStyle,
                               ),
                             ),
-                            Container(
+                            SizedBox(
                               child: IconButton(
                                 tooltip: 'Hint',
                                 iconSize: 39,
@@ -331,20 +323,20 @@ class _GameScreenState extends State<GameScreen> {
                         child: Container(
                           alignment: Alignment.bottomCenter,
                           child: FittedBox(
+                            fit: BoxFit.contain,
                             child: Image.asset(
                               'images/$hangState.png',
                               height: 1001,
                               width: 991,
                               gaplessPlayback: true,
                             ),
-                            fit: BoxFit.contain,
                           ),
                         ),
                       ),
                       Expanded(
                         flex: 5,
                         child: Container(
-                          margin: EdgeInsets.symmetric(horizontal: 35.0),
+                          margin: const EdgeInsets.symmetric(horizontal: 35.0),
                           alignment: Alignment.center,
                           child: FittedBox(
                             fit: BoxFit.fitWidth,
@@ -358,7 +350,7 @@ class _GameScreenState extends State<GameScreen> {
                     ],
                   )),
               Container(
-                padding: EdgeInsets.fromLTRB(10.0, 2.0, 8.0, 10.0),
+                padding: const EdgeInsets.fromLTRB(10.0, 2.0, 8.0, 10.0),
                 child: Table(
                   defaultVerticalAlignment: TableCellVerticalAlignment.baseline,
                   textBaseline: TextBaseline.alphabetic,
@@ -449,10 +441,10 @@ class _GameScreenState extends State<GameScreen> {
                       TableCell(
                         child: createButton(25),
                       ),
-                      TableCell(
+                      const TableCell(
                         child: Text(''),
                       ),
-                      TableCell(
+                      const TableCell(
                         child: Text(''),
                       ),
                     ]),

@@ -18,7 +18,7 @@ class HangmanWords {
   }
 
   // ignore: missing_return
-  String getWord() {
+  getWord() {
     wordCounter += 1;
     var rand = Random();
     int wordLength = _words.length;

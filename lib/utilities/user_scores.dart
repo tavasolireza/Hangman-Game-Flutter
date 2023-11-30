@@ -3,7 +3,7 @@ class Score {
   final String scoreDate;
   final int userScore;
 
-  Score({this.id, this.scoreDate, this.userScore});
+  Score({required this.id, required this.scoreDate, required this.userScore});
 
   Map<String, dynamic> toMap() {
     return {
