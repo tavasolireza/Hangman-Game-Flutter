@@ -26,11 +26,11 @@ class WordButton extends StatelessWidget {
     return ElevatedButton(
       style: ElevatedButton.styleFrom(
         elevation: 3.0,
+        backgroundColor: kWordButtonColor,
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(10),
         ),
         padding: const EdgeInsets.all(4.0),
-        primary: kWordButtonColor,
       ),
       onPressed: onPress,
       child: Text(

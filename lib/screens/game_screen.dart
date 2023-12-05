@@ -1,15 +1,15 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
+import 'package:flutter_hangman/components/word_button.dart';
 import 'package:flutter_hangman/screens/home_screen.dart';
 import 'package:flutter_hangman/utilities/alphabet.dart';
-import 'package:flutter_hangman/components/word_button.dart';
 import 'package:flutter_hangman/utilities/constants.dart';
 import 'package:flutter_hangman/utilities/hangman_words.dart';
-import 'package:rflutter_alert/rflutter_alert.dart';
-import 'dart:math';
-import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 import 'package:flutter_hangman/utilities/score_db.dart' as score_database;
 import 'package:flutter_hangman/utilities/user_scores.dart';
+import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
+import 'package:rflutter_alert/rflutter_alert.dart';
 
 class GameScreen extends StatefulWidget {
   const GameScreen({super.key, required this.hangmanObject});
@@ -229,10 +229,8 @@ class _GameScreenState extends State<GameScreen> {
         initWords();
       });
     }
-    return WillPopScope(
-      onWillPop: () {
-        return Future(() => false);
-      },
+    return PopScope(
+      canPop: false,
       child: Scaffold(
         body: SafeArea(
           child: Column(

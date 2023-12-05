@@ -1,6 +1,6 @@
+import 'package:date_format/date_format.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_hangman/utilities/constants.dart';
-import 'package:date_format/date_format.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 
 class ScoreScreen extends StatelessWidget {
@@ -44,7 +44,7 @@ class ScoreScreen extends StatelessWidget {
         ],
       ),
     );
-    print("${query[0]} this is query 0");
+    debugPrint("${query[0]} this is query 0");
     int numOfRows = query.length;
     List<String> topRanks = ["🥇", "🥈", "🥉"];
     for (var i = 0; i < numOfRows && i < 10; i++) {

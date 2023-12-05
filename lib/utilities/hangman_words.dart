@@ -1,4 +1,5 @@
 import 'dart:math';
+
 import 'package:flutter/services.dart' show rootBundle;
 
 class HangmanWords {

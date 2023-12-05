@@ -1,18 +1,20 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/painting.dart';
 import 'package:flutter_hangman/components/action_button.dart';
 import 'package:flutter_hangman/utilities/hangman_words.dart';
+
 import 'game_screen.dart';
 import 'loading_screen.dart';
 
 class HomeScreen extends StatefulWidget {
   final HangmanWords hangmanWords = HangmanWords();
 
+  HomeScreen({super.key});
+
   @override
-  _HomeScreenState createState() => _HomeScreenState();
+  HomeScreenState createState() => HomeScreenState();
 }
 
-class _HomeScreenState extends State<HomeScreen> {
+class HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     double height = MediaQuery.of(context).size.height;
@@ -23,8 +25,8 @@ class _HomeScreenState extends State<HomeScreen> {
         children: <Widget>[
           Center(
             child: Container(
-              margin: EdgeInsets.fromLTRB(8.0, 1.0, 8.0, 8.0),
-              child: Text(
+              margin: const EdgeInsets.fromLTRB(8.0, 1.0, 8.0, 8.0),
+              child: const Text(
                 'HANGMAN',
                 style: TextStyle(
                     color: Colors.white,
@@ -35,15 +37,12 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
           ),
           Center(
-            child: Container(
-//              padding: EdgeInsets.all(5.0),
-              child: Image.asset(
-                'images/gallow.png',
-                height: height * 0.49,
-              ),
+            child: Image.asset(
+              'images/gallow.png',
+              height: height * 0.49,
             ),
           ),
-          SizedBox(
+          const SizedBox(
             height: 15.0,
           ),
           Center(
@@ -51,7 +50,7 @@ class _HomeScreenState extends State<HomeScreen> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: <Widget>[
-                  Container(
+                  SizedBox(
 //                    width: 155,
                     height: 64,
                     child: ActionButton(
@@ -68,10 +67,10 @@ class _HomeScreenState extends State<HomeScreen> {
                       },
                     ),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 18.0,
                   ),
-                  Container(
+                  SizedBox(
 //                    width: 155,
                     height: 64,
                     child: ActionButton(
@@ -80,7 +79,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         Navigator.push(
                           context,
                           MaterialPageRoute(
-                            builder: (context) => LoadingScreen(),
+                            builder: (context) => const LoadingScreen(),
                           ),
                         );
                       },
