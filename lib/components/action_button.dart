@@ -24,9 +24,9 @@ class ActionButton extends StatelessWidget {
     // );
     return ElevatedButton(
       style: ElevatedButton.styleFrom(
+        foregroundColor: kActionButtonHighlightColor,
+        backgroundColor: kActionButtonColor,
         elevation: 3.0,
-        primary: kActionButtonColor,
-        onPrimary: kActionButtonHighlightColor,
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(10),
         ),

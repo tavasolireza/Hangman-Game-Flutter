@@ -1,4 +1,6 @@
 import 'dart:async';
+
+import 'package:flutter/material.dart';
 import 'package:flutter_hangman/utilities/user_scores.dart';
 import 'package:path/path.dart';
 import 'package:sqflite/sqflite.dart';
@@ -74,5 +76,6 @@ Future<void> deleteScore(int id, final database) async {
 
 void manipulateDatabase(Score scoreObject, final database) async {
   await insertScore(scoreObject, database);
-  print(await scores(database));
+  List<Score> data = await scores(database);
+  debugPrint(data.toString());
 }
